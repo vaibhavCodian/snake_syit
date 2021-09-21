@@ -7,7 +7,7 @@ class Snake():
         self.length = 1
         self.positions = [((screen_width/2), (screen_height/2))]
         self.direction = random.choice([up, down, left, right])
-        self.color = (17, 24, 47)
+        self.color = (150, 74, 17)
         # Special thanks to YouTubers Mini - Cafetos and Knivens Beast for raising this issue!
         # Code adjustment courtesy of YouTuber Elija de Hoog
         self.score = 0
@@ -78,15 +78,15 @@ def drawGrid(surface):
         for x in range(0, int(grid_width)):
             if (x+y)%2 == 0:
                 r = pygame.Rect((x*gridsize, y*gridsize), (gridsize,gridsize))
-                pygame.draw.rect(surface,(93,216,228), r)
+                pygame.draw.rect(surface,(121,134,205), r)
             else:
                 rr = pygame.Rect((x*gridsize, y*gridsize), (gridsize,gridsize))
-                pygame.draw.rect(surface, (84,194,205), rr)
+                pygame.draw.rect(surface, (66,165,245), rr)
 
 screen_width = 480
 screen_height = 480
 
-gridsize = 20
+gridsize = 40
 grid_width = screen_width/gridsize
 grid_height = screen_height/gridsize
 
@@ -99,7 +99,7 @@ def main():
     pygame.init()
 
     clock = pygame.time.Clock()
-    screen = pygame.display.set_mode((screen_width, screen_height), 0, 32)
+    screen = pygame.display.set_mode((screen_width, screen_height), 0, 12)
 
     surface = pygame.Surface(screen.get_size())
     surface = surface.convert()
@@ -108,7 +108,7 @@ def main():
     snake = Snake()
     food = Food()
 
-    myfont = pygame.font.SysFont("monospace",16)
+    myfont = pygame.font.SysFont("monospace",20)
 
     while (True):
         clock.tick(10)
